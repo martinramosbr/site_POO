@@ -1,0 +1,15 @@
+{
+    "description": "Projeto Site POO",
+    "authors": [
+        {
+            "name": "Martinho Ramos",
+            "email": "contatomartin@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\":"core"
+        }
+    },
+    "require": {}
+}
