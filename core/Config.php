@@ -26,11 +26,17 @@ abstract class Config
         define('URL', 'http://localhost/site_POO/');
         define('URLADM', 'http://localhost/site_POO/admin/');
 
-        define('CONTROLLER', 'Iome');
+        define('CONTROLLER', 'Home');
         define('CONTROLLERERRO', 'Erro');
 
         //Credenciais do banco de dados
+        define('HOST', 'localhost');
+        define('USER', 'root');
+        define('PASS', '');
+        define('DBNAME', 'aula');
+        define('PORT', 3306);
 
         define('EMAILADM', 'contatomartin@outlook.com');
+        
     }
 }

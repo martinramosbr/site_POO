@@ -1,11 +1,12 @@
 <?php
 
 namespace Sts\Controllers;
+
 if (!defined('C7E3L8K9E5')) {
     // header("Location: /");
     #http://localhost/site_POO/app/sts/views/home/
-    die ("Erro: Pagina não encontrada!");
-} 
+    die("Erro: Pagina não encontrada!");
+}
 /**
  * Carrega a página da Home
  * 
@@ -24,8 +25,9 @@ class Home
      */
     public function index()
     {
-        //echo "Pagina inicial";
-        $this->data = [];
+        $home = new \Sts\Models\StsHome();
+        $this->data = $home->index();
+        // var_dump($this->data);
         $loadView = new \Core\ConfigView("sts/Views/home/home", $this->data);
         $loadView->loadView();
     }

@@ -8,7 +8,7 @@ RewriteEngine On
 #RewriteCond %{REQUEST_FILENAME} !-d Informa que será criado uma condição a ser aplicado ao nome do dretório requisitado. A exclamação é o sinal de negação e -d pede para verificar a existência de um arquivo físico. Ex: CONDIÇÂO = SE ARQUIVO_REQUISITADO NÃO EXISTE COMO DIRETÓRIO FISICAMENTE.
 RewriteCond %{REQUEST_FILENAME} !-d
 
-#RewriteCond %{REQUEST_FILENAME} !-f Informa que será criado uma condição a ser aplicado ao nome do arquivo requisitado. A exclamação é o sinal de negação e -f pede para verificar a existência de um arquivo fisíco. Ex: CONDIÇÃO = SE ARQ}UIVO_REQUISITADO NÃO EXISTE FISICAMENTE.
+#RewriteCond %{REQUEST_FILENAME} !-f Informa que será criado uma condição a ser aplicado ao nome do arquivo requisitado. A exclamação é o sinal de negação e -f pede para verificar a existência de um arquivo fisíco. Ex: CONDIÇÃO = SE ARQUIVO_REQUISITADO NÃO EXISTE FISICAMENTE.
 RewriteCond %{REQUEST_FILENAME} !-f
 
 #RewriteCond %{REQUEST_FILENAME} !-l Informa que será criado uma condição a ser aplicado ao link simbólico requisitado. A exclamação é o sinal de negação e -l pede para verificar a existência de um link simbólco.
@@ -25,4 +25,4 @@ RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 #Bloquear para não listar os arquivos quando acessar o diretório.
-Options -Index
+Options -Indexes

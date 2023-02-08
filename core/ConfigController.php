@@ -44,7 +44,7 @@ class ConfigController extends Config
             $this->urlController = $this->slugController(CONTROLLER);
         }
 
-        echo "Controller: {$this->urlController}<br>";
+        //echo "Controller: {$this->urlController}<br>";
     }
 
     private function clearUrl()
