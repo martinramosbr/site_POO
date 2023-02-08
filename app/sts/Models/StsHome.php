@@ -14,15 +14,20 @@ class StsHome
 
     public function index(): array
     {
-        $this->data = [
-            "title" => "Topo da página",
-            "descricao" => "Descrição do serviço"
-        ];
+        // $this->data = [
+        //     "title" => "Topo da página",
+        //     "descricao" => "Descrição do serviço"
+        // ];
 
         $connection = new \Sts\Models\helper\StsConn;
         $this->connection = $connection->connectDb();
 
-        var_dump($this->connection);
+        $sql_home = "SELECT id, title_top, description_top, link_btn_top, txt_btn_top, image FROM sts_homes_tops LIMIT 1";
+        $result_sql_home = $this->connection->prepare($sql_home);
+        $result_sql_home->execute();
+        $this->data = $result_sql_home->fetch();
+
+        // var_dump($this->data);
 
         // var_dump($this->data);
 
