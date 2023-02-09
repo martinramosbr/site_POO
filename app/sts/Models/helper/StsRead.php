@@ -11,6 +11,7 @@ use PDOException;
 
 class StsRead extends StsConn
 {
+    private null|array $values;
     private string $select;
     private null|array $result = [];
     private object $conn;
@@ -21,10 +22,14 @@ class StsRead extends StsConn
         return $this->result;
     }
 
-    public function exeRead(string $table, $termos = null, $parseString = null)
+    public function exeRead(string $table, string|null $terms = null, string|null $parseString = null)
     {
+        if (!empty($parseString)) {
+            parse_str($parseString, $this->values);
+            // var_dump($this->values);
+        }
         // var_dump($table);
-        $this->select = "SELECT * FROM {$table} WHERE id=1 LIMIT 1";
+        $this->select = "SELECT * FROM {$table} {$terms}";
         // var_dump($this->select);
         $this->exeInstruction();
     }
@@ -32,7 +37,9 @@ class StsRead extends StsConn
     private function exeInstruction()
     {
         $this->connection();
+
         try {
+            $this->exeParameter();
             $this->query->execute();
             $this->result = $this->query->fetchAll();
             // var_dump($this->result);
@@ -46,5 +53,21 @@ class StsRead extends StsConn
         $this->conn = $this->connectDb();
         $this->query = $this->conn->prepare($this->select);
         $this->query->setFetchMode(PDO::FETCH_ASSOC);
+    }
+
+    private function exeParameter()
+    {
+        if ($this->values) {
+            // var_dump($this->values);
+            foreach ($this->values as $link => $value) {
+                // var_dump($link);
+                // var_dump($value);
+                if (($link == 'limit') || ($link == 'offset') || ($link == 'id')) {
+                    $value = (int) $value;
+                }
+
+                $this->query->bindValue(":{$link}", $value, (is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR));
+            }
+        }
     }
 }
