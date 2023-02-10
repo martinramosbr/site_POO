@@ -7,17 +7,23 @@ if (!defined('C7E3L8K9E5')) {
 }
 echo "<h1>Página Inicial</h1>";
 //  var_dump($this->data[0]);
-extract($this->data[0]);
+if (!empty($this->data[0])) {
+    extract($this->data[0]);
+    echo $description_top . "<br><br>";
+    echo $link_btn_top . "<br><br>";
+    echo $txt_btn_top . "<br><br>";
+    echo $image . "<br><br>";
+    // echo $created . "<br><br>";
+} else {
+    echo "<p style='color: red;'>Nenhum registro encontrado!</p>";
+}
 
 
-// extract($this->data);
+
+
 
 // echo $id . "<br><br>";
-echo $description_top . "<br><br>";
-echo $link_btn_top . "<br><br>";
-echo $txt_btn_top . "<br><br>";
-echo $image . "<br><br>";
-echo $created . "<br><br>";
+
 
 
 

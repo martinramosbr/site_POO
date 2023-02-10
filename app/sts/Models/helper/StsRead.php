@@ -34,6 +34,19 @@ class StsRead extends StsConn
         $this->exeInstruction();
     }
 
+    public function fullRead(string $query, string|null $parseString = null)
+    {
+        $this->select = $query;
+        // var_dump($this->select);
+
+        if (!empty($parseString)) {
+            parse_str($parseString, $this->values);
+            // var_dump($this->values);
+        }
+
+        $this->exeInstruction();
+    }
+
     private function exeInstruction()
     {
         $this->connection();
