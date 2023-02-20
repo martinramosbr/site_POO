@@ -19,6 +19,7 @@ class ConfigController extends Config
     //private string $urlParameter;
     private string $urlSlugController;
     private array $format;
+    private string $classLoad;
 
     public function __construct()
     {
@@ -77,8 +78,22 @@ class ConfigController extends Config
     {
         //echo "Carregar pagina<br><br>";
 
-        $classLoad = "\\Sts\\Controllers\\" . $this->urlController;
-        $classPage = new $classLoad();
+        $this->classLoad = "\\Sts\\Controllers\\" . $this->urlController;
+        if (class_exists($this->classLoad)) {
+            $this->loadClass();
+        } else {
+            $this->urlController = $this->slugController(CONTROLLERERRO);
+            $this->loadPage();
+        }
+    }
+
+    private function loadClass(): void
+    {
+        $classPage = new $this->classLoad();
+        if(method_exists($classPage, "index")){
         $classPage->index();
+        } else {
+            die("Erro: Por favor tente novamente, caso o problema percista entre em contato com o administrador. " . EMAILADM);
+        }
     }
 }
