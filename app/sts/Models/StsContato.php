@@ -16,7 +16,7 @@ class StsContato
      * @param array $data
      * @return boolean
      */
-    public function create(array $data) :bool
+    public function create(array $data): bool
     {
         $this->data = $data;
         $this->data['created'] = date("Y-m-d H:i:s");
@@ -24,12 +24,12 @@ class StsContato
         $createContatoMsg = new \Sts\Models\helper\StsCreate();
         $createContatoMsg->exeCreate("sts_contacts_msgs", $this->data);
 
-        if($createContatoMsg->getResult()){
+        if ($createContatoMsg->getResult()) {
             // var_dump($createContatoMsg->getResult()); //retonar o ultimo id inserido da conexão do usuario atual, não de todos os usuarios
-            $_SESSION['msg'] = "<p style='color: green;'>Enviado!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Enviado com sucesso!</p>";
             return true;
-        }else {
-            $_SESSION['msg'] = "<p style='color: red;'>Erro: Não enviado!</p>";
+        } else {
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro: Não enviado!</p>";
             return false;
         }
     }

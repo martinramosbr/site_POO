@@ -42,7 +42,9 @@ class Contato
         $footer = new \Sts\Models\StsFooter();
         $this->data['footer'] = $footer->index();
 
-        // $this->data = "Menssagem enviada com sucesso!<br>";
+        $contentContato = new \Sts\Models\StsContentContato();
+        $this->data['content'] = $contentContato->index();
+        // $this->data = "Mensagem enviada com sucesso!<br>";
         $loadView = new \Core\ConfigView("sts/Views/contato/contato", $this->data);
         $loadView->loadViewExe();
     }

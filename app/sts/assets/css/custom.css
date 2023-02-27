@@ -13,6 +13,13 @@
     --first-color: #08132f;
     --second-color: #090b13;
     --third-color: #1b202a;
+    --bg-alert-danger: #f8d7da;
+    --color-alert-danger: #842029;
+    --border-alert-danger: #f5c2c7;
+    --bg-alert-success: #d1d7dd;
+    --color-alert-success: #0f5132;
+    --border-alert-success: #badbcc;
+
 }
 
 body {
@@ -598,6 +605,21 @@ footer span a:hover {
         margin: 0;
     }
 }
-
-
+/* Mensagem de alerta */
+    .alert-success{
+        background-color: var(--bg-alert-success);
+        color: var(--color-alert-success);
+        margin: 10px 0px;
+        border: 1px solid var(--border-alert-success);
+        border-radius: 6px;
+        padding: 7px;
+    }
+    .alert-danger{
+        background-color: var(--bg-alert-danger);
+        color: var(--color-alert-danger);
+        margin: 10px 0px;
+        border: 1px solid var(--border-alert-danger);
+        border-radius: 6px;
+        padding: 7px;
+    }
 /* Fim da pagina contato */

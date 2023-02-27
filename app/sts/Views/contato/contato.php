@@ -10,30 +10,102 @@ if (isset($this->data['form'])) {
     extract($valueForm);
 }
 // var_dump($this->data);
-echo "<h1>Entre em contato.</h1>";
-if(isset($_SESSION['msg'])){
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
+
+if (!empty($this->data['content'])) {
+    $value_content = $this->data['content'][0];
+    extract($value_content);
+    // var_dump($value_content);
 }
+
+
 ?>
+<section class="contact">
+    <div class="max-width">
+        <h2 class="title"><?php echo $title_contact;?></h2>
+        <div class="contact-content">
+            <div class="column left">
+                <p><?php echo $desc_contact;?></p>
+                <div class="icons">
+                    <div class="row">
+                        <i class="<?php echo $icon_company;?>"></i>
+                        <div class="info">
+                            <div class="head">
+                            <?php echo $title_company;?>
+                            </div>
+                            <div class="sub-title">
+                            <?php echo $desc_company;?>
+                            </div>
+                        </div>
+                    </div>
 
-<form action="" method="post">
-    <label for="">Nome: </label>
-    <input type="text" name="name" id="name" placeholder="Nome completo" value="<?php if (isset($name)) {
-                                                                                    echo $name;
-                                                                                } ?>" /><br><br>
-    <label for="">E-mail: </label>
-    <input type="email" name="email" id="email" placeholder="Seu e-mail" value="<?php if (isset($email)) {
-                                                                                    echo $email;
-                                                                                } ?>" /><br><br>
-    <label for="">Assunto: </label>
-    <input type="text" name="subject" id="subject" placeholder="Assunto da mensagem..." value="<?php if (isset($subject)) {
-                                                                                                    echo $subject;
-                                                                                                } ?>" /><br><br>
-    <label for="">Mensagem: </label>
-    <textarea name="content" rows="6" cols="50" id="content" placeholder="Conteúdo da mensagem"><?php if (isset($content)) {
-                                                                                                    echo $content;
-                                                                                                } ?></textarea><br><br>
+                    <div class="row">
+                        <i class="<?php echo $icon_address;?>"></i>
+                        <div class="info">
+                            <div class="head">
+                            <?php echo $title_address;?>
+                            </div>
+                            <div class="sub-title">
+                            <?php echo $desc_address;?>
+                            </div>
+                        </div>
+                    </div>
 
-    <input type="submit" name="AddContMsg" id="AddContMsg" value="Enviar" />
-</form>
+                    <div class="row">
+                        <i class="<?php echo $icon_email;?>"></i>
+                        <div class="info">
+                            <div class="head">
+                            <?php echo $title_email;?>
+                            </div>
+                            <div class="sub-title">
+                            <?php echo $desc_email;?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column right">
+                <div class="text">
+                <?php echo $title_form;?>
+                </div>
+               
+                <form action="" method="post">
+                <?php
+                if (isset($_SESSION['msg'])) {
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
+                }
+                ?>
+                    <div class="fields">
+                        <div class="field name">
+                            <input type="text" name="name" id="name" placeholder="Digite o nome" value="<?php if (isset($name)) {
+                                                                                                            echo $name;
+                                                                                                        } ?>" required>
+                        </div>
+                        <div class="field email">
+                            <input type="email" name="email" id="email" placeholder="Digite o e-mail" value="<?php if (isset($email)) {
+                                                                                                                    echo $email;
+                                                                                                                } ?>" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <input type="text" name="subject" id="subject" placeholder="Digite o assunto" value="<?php if (isset($subject)) {
+                                                                                                                    echo $subject;
+                                                                                                                } ?>" required>
+                    </div>
+
+                    <div class="field textarea">
+                        <textarea name="content" rows="6" cols="50" id="content" placeholder="Digite o conteúdo" required><?php if (isset($content)) {
+                                                                                                                                echo $content;
+                                                                                                                            } ?></textarea>
+                    </div>
+
+                    <div class="button-area">
+                        <button type="submit" name="AddContMsg" id="AddContMsg" value="Enviar">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
