@@ -26,9 +26,15 @@ class Home
     public function index()
     {
         $home = new \Sts\Models\StsHome();
-        $this->data = $home->index();
+        $this->data['home'] = $home->index();
+
+        $footer = new \Sts\Models\StsFooter();
+        $this->data['footer'] = $footer->index();
         // var_dump($this->data); 
         $loadView = new \Core\ConfigView("sts/Views/home/home", $this->data);
         $loadView->loadView();
+
+        
+
     }
 }

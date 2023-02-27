@@ -5,7 +5,7 @@ if (!defined('C7E3L8K9E5')) {
     die("Erro: Pagina não encontrada!");
 }
 ?>
-<p>----Rodapé----</p>
+<script src="<?php echo URL; ?>app/sts/assets/js/custom.js"></script>
 </body>
 
 </html>
