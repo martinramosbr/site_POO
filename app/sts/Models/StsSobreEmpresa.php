@@ -24,8 +24,10 @@ class StsSobreEmpresa
     {
         $viewSobreEmpresa = new \Sts\Models\helper\StsRead();
 
-        $viewSobreEmpresa->fullRead("SELECT id, title, description, image, sts_situation_id, created FROM 	sts_abouts_companies WHERE sts_situation_id=:sts_situation_id ORDER BY id DESC LIMIT :limit", "sts_situation_id=1&limit=10");
+        $viewSobreEmpresa->fullRead("SELECT id, title, description, image, sts_situation_id, created FROM 	sts_abouts_companies WHERE sts_situation_id=:sts_situation_id LIMIT :limit", "sts_situation_id=1&limit=10");
         $this->data = $viewSobreEmpresa->getResult();
+
+        
 
         return $this->data;
     }

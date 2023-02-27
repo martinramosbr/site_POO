@@ -39,6 +39,8 @@ class Contato
                 $this->data['form'] = $this->dataForm;
             }
         }
+        $footer = new \Sts\Models\StsFooter();
+        $this->data['footer'] = $footer->index();
 
         // $this->data = "Menssagem enviada com sucesso!<br>";
         $loadView = new \Core\ConfigView("sts/Views/contato/contato", $this->data);

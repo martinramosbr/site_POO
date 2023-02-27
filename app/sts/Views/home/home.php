@@ -94,16 +94,3 @@ if (!empty($this->data['home']['prem'][0])) {
     </div>
 </section>
 
-<?php
-if (!empty($this->data['footer'][0])) {
-    // var_dump($this->data['footer'][0]);
-    extract($this->data['footer'][0]);
-?>
-    <footer>
-        <span><?php echo $footer_desc; ?><a href="<?php echo $footer_link; ?> "> <?php echo $footer_text_link; ?></a></span>
-    </footer>
-<?php
-} else {
-    echo "<p style='color: red;'>Nenhum rodapé encontrado!</p>";
-}
-?>

@@ -28,6 +28,8 @@ class SobreEmpresa
         $aboutCompany = new \Sts\Models\StsSobreEmpresa();
         $this->data['about-company'] = $aboutCompany->index();
         // var_dump($this->data['about-company']);
+        $footer = new \Sts\Models\StsFooter();
+        $this->data['footer'] = $footer->index();
         
         $loadView = new \Core\ConfigView("sts/Views/sobreEmpresa/sobreEmpresa", $this->data);
         $loadView->loadView();
