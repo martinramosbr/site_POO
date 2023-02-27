@@ -38,6 +38,17 @@ class ConfigView
     {
         if (file_exists('app/' . $this->nameView . '.php')) {
             include 'app/sts/Views/include/header.php';
+            include 'app/sts/Views/include/menu.php';
+            include 'app/' . $this->nameView . '.php';
+            include 'app/sts/Views/include/footer.php';
+        } else {
+            die("Erro: Por favor tente novamente, se percistir entre em contaot com o administrador atraves do e-mail: " . EMAILADM);
+        }
+    }
+    public function loadViewExe(): void
+    {
+        if (file_exists('app/' . $this->nameView . '.php')) {
+            include 'app/sts/Views/include/header.php';
             include 'app/' . $this->nameView . '.php';
             include 'app/sts/Views/include/footer.php';
         } else {

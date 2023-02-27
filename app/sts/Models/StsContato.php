@@ -22,7 +22,7 @@ class StsContato
         $this->data['created'] = date("Y-m-d H:i:s");
         // var_dump($this->data);
         $createContatoMsg = new \Sts\Models\helper\StsCreate();
-        $createContatoMsg->exeCreate("sts_contacts_msg", $this->data);
+        $createContatoMsg->exeCreate("sts_contacts_msgs", $this->data);
 
         if($createContatoMsg->getResult()){
             // var_dump($createContatoMsg->getResult()); //retonar o ultimo id inserido da conexão do usuario atual, não de todos os usuarios
