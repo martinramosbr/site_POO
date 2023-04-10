@@ -1,6 +1,6 @@
 <?php
 session_start(); //inicia a sessão.
-ob_start(); //limpa o buffer de saida de memoria para nao paresentar erro ao fazer redirecionamento.
+ob_start(); //limpa o buffer de saida de memoria para nao apresentar erro ao fazer redirecionamento.
 
 
 define('C7E3L8K9E5', true); //Constante que define que o usuário está acessando páginas internas através da página "index.php".
